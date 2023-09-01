@@ -1,37 +1,19 @@
-var saldoAtual: Double = 0
+import Foundation
 
-func informarSaldoAtual(de valor: String) {
-    saldoAtual = Double(valor) ?? 0
+func main() {
+    repeat {
+        if let input = readLine(), {
+            if input > 0 {
+                let valor = Double(input)
+                print("Depósito realizado com sucesso!\nSaldo atual: R$ \(valor)")
+            } else if valor == 0 {
+                print("Encerrando o programa...")
+                break
+            } else {
+                //TODO: Imprimir a mensagem de encerrar o programa.
+            }
+        } while input < 0
+    }
 }
 
-func depositar(valor: String) {
-    saldoAtual += Double(valor) ?? 0
-}
-
-func retirar(valor: String) {
-    saldoAtual -= Double(valor) ?? 0
-}
-print("Informe seu saldo atual:")
-if let saldo = readLine() {
-    informarSaldoAtual(de: saldo)
-} else {
-    print("Nenhum valor digitado.")
-}
-
-print("Informe o valor do depósito:")
-
-if let deposito = readLine() {
-    depositar(valor: deposito)
-} else {
-    print("Nenhum valor digitado.")
-}
-
-print("Informe o valor do saque:")
-
-if let saque = readLine() {
-    retirar(valor: saque)
-} else {
-    print("Nenhum valor digitado.")
-}
-
-print("Saldo atualizado na conta: \(saldoAtual)")
+main()
